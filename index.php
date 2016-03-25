@@ -3,55 +3,7 @@
 define("MAXI", 7);
 $vecteurLoto=array();
 
-/**
-* procedure nettoyerGrille
-* Initialise le vecteur à 0
-* @Param : Array $vecteurLoto
-*/
-function nettoyerGrille(& $vecteurLoto ){
-	for ($i=0 ; $i <= MAXI -1; $i++){
-		$vecteurLoto[$i] = 0;
-	} // FINPOUR
-}
 
-/**
-* procedure remplirGrille
-* Permet de remplir toute les grilles par des numéros au hasard
-* @Param : Array $vecteurLoto
-*/
-function remplirGrille(& $vecteurLoto){
-	for($i=0 ; $i<= MAXI -1; $i++){
-		do{
-			$alea = mt_rand(1,49);
-		} while(nombreExiste($alea,$vecteurLoto));
-		$vecteurLoto[$i]=$alea;
-	}
-}
-
-/**
-* fonction nombreExiste
-* Permet de vérifier si il n'y a pas 2 fois le même nombre dans le tirage
-* @Param : Entier $x , Array $vecteur
-* @Return : Booléen $existDeja
-*/
-function nombreExiste($x , $vecteur){
-	$i=1;
-	$existDeja = false;
-	do{
-		if ($x == $vecteur[$i]){
-			$existDeja = true;
-		}
-		$i++;
-	} while((!$existDeja) && ($i< MAXI-1));
-	return $existDeja;
-}
-
-/**
-* fonction afficherLoto
-* Permet d'afficher le tirage du loto
-* @Param : Array $vecteurLoto
-*/
-function afficherLoto(& $vecteurLoto)
 {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
